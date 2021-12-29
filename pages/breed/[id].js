@@ -97,14 +97,16 @@ export default function Breed({ currentData, images }) {
 // This gets called on every request
 export async function getServerSideProps(context) {
 	// get id
-	const id = context.params.id;
-	// Fetch data from external API
-	const res = await axios.get(`http://localhost:3000/api/breed/${id}`);
+	if (context.req) {
+		const id = context.params.id;
+		// Fetch data from external API
+		const res = await axios.get(`http://localhost:3000/api/breed/${id}`);
 
-	const data = await res.data;
-	const currentData = data[0].breeds[0];
-	const images = data.map((image) => image.url);
+		const data = await res.data;
+		const currentData = data[0].breeds[0];
+		const images = data.map((image) => image.url);
 
-	// Pass data to the page via props
-	return { props: { currentData, images } };
+		// Pass data to the page via props
+		return { props: { currentData, images } };
+	}
 }
