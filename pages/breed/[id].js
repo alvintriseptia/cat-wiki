@@ -97,12 +97,22 @@ export default function Breed({ currentData, images }) {
 // This gets called on every request
 export async function getServerSideProps(context) {
 	// get id
-	if (context.req) {
+	if (process.env.VERCEL_URL) {
 		const id = context.params.id;
 		// Fetch data from external API
-		const res = await axios.get(
-			`https://alvindev-catwiki.netlify.app/api/breed/${id}`
-		);
+		const res = await axios.get(`${process.env.VERCEL_URL}/api/breed/${id}`);
+
+		const data = await res.data;
+		const currentData = data[0].breeds[0];
+		const images = data.map((image) => image.url);
+
+		// Pass data to the page via props
+		return { props: { currentData, images } };
+	} else {
+		// Fetch data from external API
+		const id = context.params.id;
+		// Fetch data from external API
+		const res = await axios.get(`http://localhost:3000/api/breed/${id}`);
 
 		const data = await res.data;
 		const currentData = data[0].breeds[0];

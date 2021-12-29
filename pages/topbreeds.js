@@ -25,10 +25,19 @@ export default function topbreeds({ data }) {
 
 // This gets called on every request
 export async function getServerSideProps() {
-	// Fetch data from external API
-	const res = await fetch(`https://alvindev-catwiki.netlify.app/api/breeds`);
-	const data = await res.json();
+	if (process.env.VERCEL_URL) {
+		// Fetch data from external API
+		const res = await fetch(`${process.env.VERCEL_URL}/api/breeds`);
+		const data = await res.json();
 
-	// Pass data to the page via props
-	return { props: { data } };
+		// Pass data to the page via props
+		return { props: { data } };
+	} else {
+		// Fetch data from external API
+		const res = await fetch(`http://localhost:3000/api/breeds`);
+		const data = await res.json();
+
+		// Pass data to the page via props
+		return { props: { data } };
+	}
 }
