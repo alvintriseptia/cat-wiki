@@ -104,7 +104,9 @@ export async function getServerSideProps(context) {
 	if (process.env.VERCEL_URL) {
 		const id = context.params.id;
 		// Fetch data from external API
-		const res = await axios.get(`${process.env.VERCEL_URL}/api/breed/${id}`);
+		const res = await axios.get(
+			`https://alvindev-catwiki.vercel.app/api/breed/${id}`
+		);
 
 		const data = await res.data;
 		const currentData = data[0].breeds[0];
