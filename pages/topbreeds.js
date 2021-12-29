@@ -25,9 +25,9 @@ export default function topbreeds({ data }) {
 
 // This gets called on every request
 export async function getServerSideProps() {
-	if (NEXT_PUBLIC_VERCEL_ENV) {
+	if (process.env.VERCEL_URL) {
 		// Fetch data from external API
-		const res = await fetch(`${NEXT_PUBLIC_VERCEL_ENV}/api/breeds`);
+		const res = await fetch(`${process.env.VERCEL_URL}/api/breeds`);
 		const data = await res.json();
 
 		// Pass data to the page via props

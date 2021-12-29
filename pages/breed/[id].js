@@ -97,10 +97,10 @@ export default function Breed({ currentData, images }) {
 // This gets called on every request
 export async function getServerSideProps(context) {
 	// get id
-	if (NEXT_PUBLIC_VERCEL_ENV) {
+	if (process.env.VERCEL_URL) {
 		const id = context.params.id;
 		// Fetch data from external API
-		const res = await axios.get(`${NEXT_PUBLIC_VERCEL_ENV}/api/breed/${id}`);
+		const res = await axios.get(`${process.env.VERCEL_URL}/api/breed/${id}`);
 
 		const data = await res.data;
 		const currentData = data[0].breeds[0];
