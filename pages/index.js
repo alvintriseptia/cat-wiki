@@ -34,7 +34,11 @@ export default function Home({ data }) {
 }
 
 // This gets called on every request
-export async function getServerSideProps() {
+export async function getServerSideProps({ res }) {
+	res.setHeader(
+		"Cache-Control",
+		"public, s-maxage=10, stale-while-revalidate=59"
+	);
 	if (process.env.VERCEL_URL) {
 		// Fetch data from external API
 		const res = await fetch(`${process.env.VERCEL_URL}/api/breeds`);

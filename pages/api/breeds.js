@@ -1,5 +1,4 @@
 import axios from "axios";
-require("dotenv").config();
 
 export default function handler(req, res) {
 	// get data from external api

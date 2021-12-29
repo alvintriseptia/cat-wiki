@@ -96,6 +96,10 @@ export default function Breed({ currentData, images }) {
 
 // This gets called on every request
 export async function getServerSideProps(context) {
+	context.res.setHeader(
+		"Cache-Control",
+		"public, s-maxage=10, stale-while-revalidate=59"
+	);
 	// get id
 	if (process.env.VERCEL_URL) {
 		const id = context.params.id;
