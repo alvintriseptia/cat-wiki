@@ -22,14 +22,14 @@ const Content = () => {
 			</div>
 			<div className="flex space-x-8">
 				<div className="flex flex-col items-end space-y-8">
-					<div className="relative w-[273px] h-[167px]">
+					<div className="relative w-[172px] lg:w-[273px] h-[167px]">
 						<Image layout="fill" src="/image2.png" alt="cat" />
 					</div>
-					<div className="relative w-[195px] h-[293px]">
+					<div className="relative w-[122px] lg:w-[195px] h-[293px]">
 						<Image layout="fill" src="/image1.png" alt="cat" />
 					</div>
 				</div>
-				<div className="relative w-[238px] h-[385px]">
+				<div className="relative w-[149px] lg:w-[238px] h-[385px]">
 					<Image layout="fill" src="/image3.png" alt="cat" />
 				</div>
 			</div>

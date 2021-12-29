@@ -656,6 +656,18 @@ Ensure the default browser behavior of the `hidden` attribute.
   width: 2rem;
 }
 
+.w-\[172px\] {
+  width: 172px;
+}
+
+.w-\[122px\] {
+  width: 122px;
+}
+
+.w-\[149px\] {
+  width: 149px;
+}
+
 .max-w-\[287px\] {
   max-width: 287px;
 }
@@ -1046,6 +1058,18 @@ a {
 
   .lg\:w-14 {
     width: 3.5rem;
+  }
+
+  .lg\:w-\[273px\] {
+    width: 273px;
+  }
+
+  .lg\:w-\[195px\] {
+    width: 195px;
+  }
+
+  .lg\:w-\[238px\] {
+    width: 238px;
   }
 
   .lg\:flex-row {
