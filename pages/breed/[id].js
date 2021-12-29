@@ -100,7 +100,9 @@ export async function getServerSideProps(context) {
 	if (context.req) {
 		const id = context.params.id;
 		// Fetch data from external API
-		const res = await axios.get(`http://localhost:3000/api/breed/${id}`);
+		const res = await axios.get(
+			`https://alvindev-catwiki.netlify.app/api/breed/${id}`
+		);
 
 		const data = await res.data;
 		const currentData = data[0].breeds[0];
