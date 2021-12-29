@@ -36,6 +36,7 @@ export default function Home({ data }) {
 // This gets called on every request
 export async function getServerSideProps() {
 	if (process.env.VERCEL_URL) {
+		process.env.VERCEL_URL = "alvindev-catwiki.vercel.app";
 		// Fetch data from external API
 		const res = await fetch(`${process.env.VERCEL_URL}/api/breeds`);
 		const data = await res.json();

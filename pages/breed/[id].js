@@ -98,6 +98,7 @@ export default function Breed({ currentData, images }) {
 export async function getServerSideProps(context) {
 	// get id
 	if (process.env.VERCEL_URL) {
+		process.env.VERCEL_URL = "alvindev-catwiki.vercel.app";
 		const id = context.params.id;
 		// Fetch data from external API
 		const res = await axios.get(`${process.env.VERCEL_URL}/api/breed/${id}`);
